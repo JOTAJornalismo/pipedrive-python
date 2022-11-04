@@ -2,9 +2,14 @@
 
 pipedrive-python is an API wrapper for [Pipedrive](https://www.pipedrive.com/) written in Python.
 
-## Installing
+## Install
+With poetry:
 ```
-pip install pipedrive-python-lib
+poetry add git+https://github.com/JOTAJornalismo/pipedrive-python.git#master
+```
+With pip:
+```
+pip install git+https://github.com/JOTAJornalismo/pipedrive-python.git#master
 ```
 
 ## Usage
@@ -52,7 +57,7 @@ client = Client(domain='https://companydomain.pipedrive.com/')
 client.set_api_token('API_TOKEN')
 ```
 
-### Activities 
+### Activities
 
 API docs: https://developers.pipedrive.com/docs/api/v1/#!/Activities
 
@@ -202,6 +207,12 @@ response = client.deals.get_deal_products('DEAL_ID')
 response = client.deals.get_deal_fields()
 ```
 
+#### Get updates of a deal
+```
+response = client.deals.get_deal_updates('DEAL_ID')
+```
+
+
 ### Filters
 
 API docs: https://developers.pipedrive.com/docs/api/v1/#!/Filters
@@ -219,7 +230,7 @@ response = client.filters.get_all_filters()
 #### Create filter
 ```
 data = {
-    'name': '', 
+    'name': '',
     'conditions': {},
     'type': ''
 }
@@ -229,7 +240,7 @@ response = client.filters.create_filter(data)
 #### Update filter
 ```
 data = {
-    'name': '', 
+    'name': '',
     'conditions': {},
     'type': ''
 }
@@ -329,7 +340,7 @@ response = client.organizations.delete_organization('ORGANIZATION_ID')
 response = client.organizations.get_organization_fields()
 ```
 
-### Persons 
+### Persons
 
 API docs: https://developers.pipedrive.com/docs/api/v1/#!/Persons
 
@@ -464,7 +475,7 @@ params = {
 response = client.recents.get_recent_changes(params=params)
 ```
 
-### Users 
+### Users
 
 API docs: https://developers.pipedrive.com/docs/api/v1/#!/Users
 
@@ -483,7 +494,7 @@ response = client.users.get_all_users()
 response = client.users.get_me()
 ```
 
-### Webhook 
+### Webhook
 
 API docs: https://developers.pipedrive.com/docs/api/v1/#!/Webhooks
 
@@ -513,12 +524,3 @@ response = client.webhooks.delete_hook_subscription('HOOK_ID')
 
 ## Contributing
 We are always grateful for any kind of contribution including but not limited to bug reports, code enhancements, bug fixes, and even functionality suggestions.
-
-#### You can report any bug you find or suggest new functionality with a new [issue](https://github.com/GearPlug/pipedrive-python/issues).
-
-#### If you want to add yourself some functionality to the wrapper:
-1. Fork it ( https://github.com/GearPlug/pipedrive-python )
-2. Create your feature branch (git checkout -b my-new-feature)
-3. Commit your changes (git commit -am 'Adds my new feature')
-4. Push to the branch (git push origin my-new-feature)
-5. Create a new Pull Request
