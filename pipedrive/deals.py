@@ -91,3 +91,6 @@ class Deals(object):
     def get_deal_updates(self, deal_id, **kwargs):
         url = 'deals/{}/flow'.format(deal_id)
         return self._client._get(self._client.BASE_URL + url, **kwargs)
+
+    def get_timeline(self, params=None, **kwargs):
+        return self._client._get(f'{self._client.BASE_URL}deals/timeline', params=params, **kwargs)
